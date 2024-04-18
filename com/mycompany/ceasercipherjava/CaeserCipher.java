@@ -17,4 +17,28 @@ public class CaeserCipher{
       System.out.print("Enter the shift value for the message: ");
       int shift = scan.nextInt();
    }
+   
+   public static String encrpt(String message, int shift){
+   
+      //create a StringBuilder object
+      StringBuilder encryptedMessage = new StringBuilder();
+      
+      //make sure message is in lower case
+      message = message.toLowerCase();
+      
+      //iterate over each character in the message
+      for(int i = 0; i < message.length(); i++){
+         char c = message.charAt(i);
+         
+         //check if the character is a letter
+         if(Character.isLetter(c)){
+            c = (char) ((c - 'a' + shift + 26) % 26 + 'a');
+         }
+         
+         //append the encrypted character to the StringBuilder
+         encryptedMessage.append(c);
+      }
+      //convert the StringBuilder to a stringa and return the encrypted message
+      return encryptedMessage.toString();
+   }
 }
