@@ -16,9 +16,15 @@ public class CaeserCipher{
       //prompt user for shift value for the message
       System.out.print("Enter the shift value for the message: ");
       int shift = scan.nextInt();
+      
+      //encrypt the message using the specified shift value
+      String encryptedMessage = encrypt(message, shift);
+      
+      //output the encrypted message
+      System.out.println("Encrypted messge: "+ encryptedMessage);
    }
    
-   public static String encrpt(String message, int shift){
+   public static String encrypt(String message, int shift){
    
       //create a StringBuilder object
       StringBuilder encryptedMessage = new StringBuilder();
